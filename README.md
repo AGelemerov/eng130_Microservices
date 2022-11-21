@@ -73,3 +73,19 @@ To run in detached mode:
 
 To see logs
 `docker logs CONTAINERID`
+
+
+## Host nginx
+- `docker run -d -p 80:80 nginx`
+- `docker ps` copy name of container (at the end)
+- `docker rename (name of container)`
+- Go to dockerhub
+- Create a repository
+- Name it and create it
+
+- In GitBash
+- `docker tag nginx:latest agelemerov/eng130-angel-docker:profile`
+- `docker push agelemerov/eng130-angel-docker:profile`
+
+## To upload a file:
+- `docker cp C:/Users/angel/Desktop/Microservices/images/resume.css  70b047cb03e3:/usr/share/nginx/html`
