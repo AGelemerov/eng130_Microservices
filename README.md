@@ -37,3 +37,39 @@ The benefits of Docker in building and deploying applications are many:
 - Fast deployment, ease of creating new instances, and faster migrations.
 - Ease of moving and maintaining your applications
 - Better security, less access needed to work with the code running inside containers, and fewer software dependencies
+
+## Docker setup
+
+Docker Daemon
+Docker Host
+Docker Engine
+All the same
+
+1. Check connection - `docker pull hello-world` (case sensitive)
+2. If you are getting an error similar to this:
+```
+Using default tag: latest
+error during connect: In the default daemon configuration on Windows, the docker client must be run with elevated privileges to connect.: Post "http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.24/images/create?fromImage=hello-world&tag=latest": open //./pipe/docker_engine: The system cannot find the file specified.
+```
+
+3. Make sure you are logged into docker `docker login`
+4. Make sure you are running terminal in admin mode
+5. If you have done both run the following command `alias docker="winpty docker"`
+6. `docker run`
+   
+### Ghost
+Testing microservice
+- If you are getting this error:
+  ```
+    connect ECONNREFUSED 127.0.0.1:3306
+    "Unknown database error"
+  ```
+
+To delete container:
+- `docker rm CONTAINERID -f`
+
+To run in detached mode:
+`docker run -d -p 80:80 nginx`
+
+To see logs
+`docker logs CONTAINERID`
