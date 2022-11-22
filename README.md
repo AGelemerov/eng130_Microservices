@@ -96,3 +96,81 @@ To see logs
 
 ## To upload a file:
 - `docker cp C:/Users/angel/Desktop/Microservices/images/resume.css  70b047cb03e3:/usr/share/nginx/html`
+
+
+## Steps
+1. Create dockerfile
+
+```Dockerfile
+  # docker run -d -p 80:80 nginx
+  FROM nginx
+  #who is creating it
+  LABEL MAINTAINER=eng130-angel
+  # created index.html profile -> copy to container
+  # default location -> usr/share/nginx/html/
+  COPY index.html /usr/share/nginx/html/
+  # commit
+  # push
+  # docker run -d -p 80:80 name
+  #       launch nginx
+  #       port number must be specified
+  EXPOSE 80
+
+  #launch server
+  CMD ["nginx", "-g", "daemon off;"]
+```
+
+2. Build an image
+   1. `docker build -t agelemerov/eng130-angel-docker .` - where . is the Dockerfile locaiton
+3. Commit changes
+   1. `docker commit inspiring_diffie agelemerov/eng130-angel-docker:latest`
+4. Push changes to DockerHub
+   1. `docker push agelemerov/eng130-angel-docker:latest`
+5. Run the image
+   1. `docker run -d -p 80:80 agelemerov/eng130-angel-docker`
+
+## Setup NodeApp in Docker container
+
+1. Create new folder
+2. Create new Dockerfile in folder
+3. Add any file you want to that folder (in this case app and environment folders)
+4. To the Dockerfile add the following script:
+
+```Dockerfile
+  FROM nginx
+
+  LABEL MAINTAINER=eng130-angel
+
+  COPY app /home/
+  COPY environment /home/
+
+  EXPOSE 80
+  EXPOSE 3000
+
+  RUN apt-get update
+  RUN apt-get install -y
+  RUN apt-get install software-properties-common -y
+  RUN apt-get install npm -y
+
+  CMD ["nginx", "-g", "daemon off;"]
+  WORKDIR /home/app
+  RUN npm install
+  CMD ["npm", "start"]
+```
+
+5. Build the node app
+   1. `docker build -t nodeapp .`
+6. Run the app to make sure it works locally
+   1. `docker run -d -p 80:3000 nodeapp`
+7. Stop the container
+   1. `docker stop ID`
+8. Commit the changes we made to "node"
+   1. `docker commit ID agelemerov/eng130-angel-docker:latest`
+9. Push the changes
+   1.  `docker push agelemerov/eng130-angel-docker:latest`
+10. To check if all is good
+    1.  Delete the image
+        1.  `docker rm ID -f`
+    2.  Run the image from DockerHub
+        1.  `docker run -d -p 80:3000 agelemerov/eng130-angel-docker:latest`
+11. If you now go to "localhost" in your browser, you should see your app
