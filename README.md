@@ -21,7 +21,6 @@ Microservices - also known as the microservice architecture - is an architectura
 ### Autonomous
 - Each component service in a microservices architecture can be developed, deployed, operated, and scaled without affecting the functioning of other services. Services do not need to share any of their code or implementation with other services. Any communication between individual components happens via well-defined APIs.
 
-
 ### Specialized
 - Each service is designed for a set of capabilities and focuses on solving a specific problem. If developers contribute more code to a service over time and the service becomes complex, it can be broken into smaller services.
 ![monolith-vs-microservices](images/monolith-vs-microservice.png)
@@ -195,3 +194,48 @@ To see logs
     2.  Run the image from DockerHub
         1.  `docker run -d -p 80:3000 agelemerov/eng130-angel-docker:latest`
 11. If you now go to "localhost" in your browser, you should see your app
+
+
+
+```conf
+# mongod.conf
+
+# for documentation of all options, see:
+#   http://docs.mongodb.org/manual/reference/configuration-options/
+
+# Where and how to store data.
+storage:
+  dbPath: /var/lib/mongodb
+#  engine:
+#  wiredTiger:
+
+# where to write logging data.
+systemLog:
+  destination: file
+  logAppend: true
+  path: /var/log/mongodb/mongod.log
+
+# network interfaces
+net:
+  port: 27017
+  bindIp: 127.0.0.1
+
+
+# how the process runs
+processManagement:
+  timeZoneInfo: /usr/share/zoneinfo
+
+#security:
+
+#operationProfiling:
+
+#replication:
+
+#sharding:
+
+## Enterprise-Only Options:
+
+#auditLog:
+
+#snmp:
+```
