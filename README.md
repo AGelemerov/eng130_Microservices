@@ -18,15 +18,26 @@ Microservices - also known as the microservice architecture - is an architectura
 - The microservice architecture enables the rapid, frequent and reliable delivery of large, complex applications. It also enables an organization to evolve its technology stack.
 ![monolith-vs-microservices](images/monolith-vs-microservice.png)
 
-### Benefits of Microservices
+## Benefits of Microservices
 
-- Improved Scalability
-- Better Fault Isolation for More Resilient Applications
-- Programming Language and Technology Agnostic
-- Better Data Security and Compliance
-- Faster Time to Market and “Future-Proofing”
-- Greater Business Agility and Support for DevOps
-- Support for Two-Pizza Development Teams
+### Agility
+  - Microservices foster an organization of small, independent teams that take ownership of their services. Teams act within a small and well understood context, and are empowered to work more independently and more quickly. This shortens development cycle times. You benefit significantly from the aggregate throughput of the organization.
+
+### Flexible Scaling
+  - Microservices allow each service to be independently scaled to meet demand for the application feature it supports. This enables teams to right-size infrastructure needs, accurately measure the cost of a feature, and maintain availability if a service experiences a spike in demand.
+
+### Easy Deployment
+  - Microservices enable continuous integration and continuous delivery, making it easy to try out new ideas and to roll back if something doesn’t work. The low cost of failure enables experimentation, makes it easier to update code, and accelerates time-to-market for new features.
+
+### Technological Freedom
+  - Microservices architectures don’t follow a “one size fits all” approach. Teams have the freedom to choose the best tool to solve their specific problems. As a consequence, teams building microservices can choose the best tool for each job.
+
+### Reusable Code
+  - Dividing software into small, well-defined modules enables teams to use functions for multiple purposes. A service written for a certain function can be used as a building block for another feature. This allows an application to bootstrap off itself, as developers can create new capabilities without writing code from scratch.
+
+### Resilience
+  - Service independence increases an application’s resistance to failure. In a monolithic architecture, if a single component fails, it can cause the entire application to fail. With microservices, applications handle total service failure by degrading functionality and not crashing the entire application.
+
 ## Docker
 Docker is a platform designed to help developers build, share, and run modern applications. 
 
