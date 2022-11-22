@@ -1,8 +1,8 @@
 # Microservices
-
+Microservices are an architectural and organizational approach to software development where software is composed of small independent services that communicate over well-defined APIs. These services are owned by small, self-contained teams.
 
 ## FOR SHAHRUKH
-`docker run -d -p 80:80 agelemerov/eng130-angel-docker:profile`
+`docker run -d -p 80:3000 agelemerov/eng130-angel-docker:latest`
 
 
 ![micro-over-years](images/microservices-over-the-years.png)
