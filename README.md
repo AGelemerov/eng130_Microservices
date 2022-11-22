@@ -1,5 +1,10 @@
 # Microservices
 
+
+## FOR SHAHRUKH
+`docker run -d -p 80:80 agelemerov/eng130-angel-docker:profile`
+
+
 ![micro-over-years](images/microservices-over-the-years.png)
 
 Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of services that are:
@@ -37,6 +42,8 @@ The benefits of Docker in building and deploying applications are many:
 - Fast deployment, ease of creating new instances, and faster migrations.
 - Ease of moving and maintaining your applications
 - Better security, less access needed to work with the code running inside containers, and fewer software dependencies
+
+![docker](images/docker.png)
 
 ## Docker setup
 
