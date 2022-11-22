@@ -16,6 +16,14 @@ Microservices - also known as the microservice architecture - is an architectura
 - Organized around business capabilities
 - Owned by a small team
 - The microservice architecture enables the rapid, frequent and reliable delivery of large, complex applications. It also enables an organization to evolve its technology stack.
+## Characteristics of Microservices
+
+### Autonomous
+- Each component service in a microservices architecture can be developed, deployed, operated, and scaled without affecting the functioning of other services. Services do not need to share any of their code or implementation with other services. Any communication between individual components happens via well-defined APIs.
+
+
+### Specialized
+- Each service is designed for a set of capabilities and focuses on solving a specific problem. If developers contribute more code to a service over time and the service becomes complex, it can be broken into smaller services.
 ![monolith-vs-microservices](images/monolith-vs-microservice.png)
 
 ## Benefits of Microservices
