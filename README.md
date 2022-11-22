@@ -98,7 +98,7 @@ To see logs
 - `docker cp C:/Users/angel/Desktop/Microservices/images/resume.css  70b047cb03e3:/usr/share/nginx/html`
 
 
-## Steps
+## Setup nginx in Docker container
 1. Create dockerfile
 
 ```Dockerfile
