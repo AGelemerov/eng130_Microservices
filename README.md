@@ -46,7 +46,7 @@ Microservices - also known as the microservice architecture - is an architectura
   - Service independence increases an application’s resistance to failure. In a monolithic architecture, if a single component fails, it can cause the entire application to fail. With microservices, applications handle total service failure by degrading functionality and not crashing the entire application.
 
 ## Docker
-Docker is a platform designed to help developers build, share, and run modern applications. 
+Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.
 
 ### What is a container?
 A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another.
@@ -66,11 +66,12 @@ The benefits of Docker in building and deploying applications are many:
 ![docker](images/docker.png)
 
 ## Docker setup
+### All the same
 
-Docker Daemon
-Docker Host
-Docker Engine
-All the same
+- Docker Daemon
+- Docker Host
+-Docker Engine
+
 
 1. Check connection - `docker pull hello-world` (case sensitive)
 2. If you are getting an error similar to this:
@@ -83,23 +84,48 @@ error during connect: In the default daemon configuration on Windows, the docker
 4. Make sure you are running terminal in admin mode
 5. If you have done both run the following command `alias docker="winpty docker"`
 6. `docker run`
-   
-### Ghost
-Testing microservice
-- If you are getting this error:
-  ```
-    connect ECONNREFUSED 127.0.0.1:3306
-    "Unknown database error"
-  ```
 
-To delete container:
+## Useful commands
+
+### To delete container:
 - `docker rm CONTAINERID -f`
 
-To run in detached mode:
-`docker run -d -p 80:80 nginx`
+### To run in detached mode:
+- `docker run -d -p 80:80 nginx`
 
-To see logs
-`docker logs CONTAINERID`
+### To see logs
+- `docker logs CONTAINERID`
+
+### List currently running containers
+- `docker ps`
+
+### List all images
+- `docker images`
+
+### Commit changes to image
+- `docker commit NAME/ID DOCKERHUB_REPO`
+
+### Push changes to Dockerhub (after commit)
+- `docker push DOCKERHUB_REPO`
+### Tag an image
+Used to make different versions of the same image
+- `docker tag CURRENT_TAG FUTURE_TAG`
+
+### Rename a container
+- `docker rename OLD_NAME NEW_NAME`
+
+### Build a new image
+- `docker build -t DOCKERHUB_REPO DOCKERFILE_LOCATION`
+
+
+### Stop a running docker container
+- `docker stop ID/NAME`
+
+### Remove all running container instances
+- `docker rm $(docker ps -a -q)`
+
+### Upload a file:
+- `docker cp C:/Users/angel/Desktop/Microservices/images/resume.css  70b047cb03e3:/usr/share/nginx/html`
 
 
 ## Host nginx
@@ -113,10 +139,6 @@ To see logs
 - In GitBash
 - `docker tag nginx:latest agelemerov/eng130-angel-docker:profile`
 - `docker push agelemerov/eng130-angel-docker:profile`
-
-## To upload a file:
-- `docker cp C:/Users/angel/Desktop/Microservices/images/resume.css  70b047cb03e3:/usr/share/nginx/html`
-
 
 ## Setup nginx in Docker container
 1. Create dockerfile
@@ -194,48 +216,3 @@ To see logs
     2.  Run the image from DockerHub
         1.  `docker run -d -p 80:3000 agelemerov/eng130-angel-docker:latest`
 11. If you now go to "localhost" in your browser, you should see your app
-
-
-
-```conf
-# mongod.conf
-
-# for documentation of all options, see:
-#   http://docs.mongodb.org/manual/reference/configuration-options/
-
-# Where and how to store data.
-storage:
-  dbPath: /var/lib/mongodb
-#  engine:
-#  wiredTiger:
-
-# where to write logging data.
-systemLog:
-  destination: file
-  logAppend: true
-  path: /var/log/mongodb/mongod.log
-
-# network interfaces
-net:
-  port: 27017
-  bindIp: 127.0.0.1
-
-
-# how the process runs
-processManagement:
-  timeZoneInfo: /usr/share/zoneinfo
-
-#security:
-
-#operationProfiling:
-
-#replication:
-
-#sharding:
-
-## Enterprise-Only Options:
-
-#auditLog:
-
-#snmp:
-```
