@@ -1,8 +1,8 @@
-FROM mongo-express
+FROM mongo
 
 WORKDIR /usr/src/db/
 
-COPY ./mongod.conf.orig /etc/
+COPY ./mongod.conf /etc/
 
 EXPOSE 27017
 

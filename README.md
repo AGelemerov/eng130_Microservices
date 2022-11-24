@@ -216,3 +216,27 @@ Used to make different versions of the same image
     2.  Run the image from DockerHub
         1.  `docker run -d -p 80:3000 agelemerov/eng130-angel-docker:latest`
 11. If you now go to "localhost" in your browser, you should see your app
+
+## Docker compose file
+```yaml
+   volumes:
+   db:
+   services:
+   db:
+      image: mongo:4.0.4
+      ports:
+         - "27017:27017"
+      volumes:
+         - ./db/mongod.conf:/etc/mongod.conf
+
+   app:
+      build: ./app
+      restart: always
+      ports:
+         - "80:3000"
+      environment:
+      # export an environment variable containing the ip of the db instance
+         - DB_HOST=mongodb://172.18.0.2:27017/posts
+      depends_on:
+         - db
+```
