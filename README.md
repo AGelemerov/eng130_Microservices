@@ -223,6 +223,7 @@ Used to make different versions of the same image
    db:
    services:
    db:
+      container_name: db
       image: mongo:4.0.4
       ports:
          - "27017:27017"
@@ -230,13 +231,14 @@ Used to make different versions of the same image
          - ./db/mongod.conf:/etc/mongod.conf
 
    app:
+      container_name: app
       build: ./app
       restart: always
       ports:
          - "80:3000"
       environment:
       # export an environment variable containing the ip of the db instance
-         - DB_HOST=mongodb://172.18.0.2:27017/posts
+         - DB_HOST=mongodb://db:27017/posts
       depends_on:
          - db
 ```
