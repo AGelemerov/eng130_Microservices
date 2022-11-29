@@ -242,6 +242,3 @@ Used to make different versions of the same image
       depends_on:
          - db
 ```
-
-
-Testing merge and tests
