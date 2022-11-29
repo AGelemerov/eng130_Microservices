@@ -1,0 +1,26 @@
+apiVersion: apps/v1 # which api to use
+kind: Deployment # what kind of service/object
+
+# what would you like to call it (name the service/deployment)
+metadata:
+  name: nginx-deployment # naming
+spec:
+  selector:
+    matchLabels:
+      app: nginx # look for this label to match with K8s service
+  
+  # Let's create a replica set of this with instances/pods
+  replicas: 3
+  # template to use it;'s label for K8s service to launch in browser
+  template:
+    metadata:
+      labels:
+        app: nginx # This label connects to the service or any other k8 components
+
+    # Let's define the container spec
+    spec:
+      containers:
+      - name: nginx
+        image: agelemerov/eng130-angel-docker:demo
+        ports:
+        - containerPort: 80
