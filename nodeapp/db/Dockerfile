@@ -1,4 +1,4 @@
-FROM mongo
+FROM mongo:4.0.4
 
 WORKDIR /usr/src/db/
 
