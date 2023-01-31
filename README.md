@@ -244,3 +244,6 @@ Used to make different versions of the same image
       depends_on:
          - db
 ```
+# Kubernetes
+
+Kubernetes is an open-source container orchestration system for automating software deployment, scaling, and management.
